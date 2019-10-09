@@ -7,5 +7,5 @@ function [bw] = rgb2bw(rgb)
 %   bw: greyscale representation of the image
 [x,y,c] = size(rgb);
 bw = zeros(x,y);
-bw(:,:) = 255 - ((int32(rgb(:,:,1)) + int32(rgb(:,:,2)) + int32(rgb(:,:,3)))/3);
+bw(:,:) = ((int32(rgb(:,:,1)) + int32(rgb(:,:,2)) + int32(rgb(:,:,3)))/3);
 
