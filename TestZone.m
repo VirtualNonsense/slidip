@@ -7,5 +7,8 @@ filepath = 'C:\Users\andre\OneDrive\Software\source\repos\Matlab\Uni\slidip\test
 pic = imread(filepath);
 pic = rgb2bw(pic);
 pic = sobeloperator(pic);
+pic = threshold(pic, 0);
+colormap gray;
 image(pic,'CDataMapping', 'scaled');
+
 colorbar;
