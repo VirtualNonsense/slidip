@@ -1,11 +1,11 @@
-function [outmatrix] = houghtransformation(inmatrix,pistep, dstep)
+function [outmatrix] = houghtransformation(inmatrix, pistep, dstep)
     %HOUGHTRANSFORMATION Summary of this function goes here
     %   Detailed explanation goes here
     [x,y] = size(inmatrix);
     dmax = (x^2 + y^2)^0.5;
     dmin = -dmax;
     amountangle = pi / pistep;
-    outmatrix = zeros(round(amountangle), 2*round(dmax/dstep));
+    outmatrix = zeros(round(amountangle)+1, 2*round(dmax/dstep)+1);
     [row,col] = find(inmatrix > 0);
     pixels = [row,col];
     
