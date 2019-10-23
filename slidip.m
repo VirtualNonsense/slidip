@@ -22,7 +22,7 @@ function varargout = slidip(varargin)
 
 % Edit the above text to modify the response to help slidip
 
-% Last Modified by GUIDE v2.5 18-Oct-2019 19:16:51
+% Last Modified by GUIDE v2.5 23-Oct-2019 18:53:04
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -160,13 +160,15 @@ function hough2lines_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 houghpicthreshold = evalin('base','houghpicthreshold');
-pistep = evalin('base','pistep');
-dstep = evalin('base','dstep');
 alpha = evalin('base','alpha');
 d = evalin('base','dist');
 sobelpicthreshold = evalin('base','sobelpicthreshold');
 picsize = evalin('base','picsize');
-hough2linespic = hough2lines(houghpicthreshold,pistep,dstep,alpha,d,picsize);
+maxdistance = 10;
+%maxdistance = str2double(get(handles.maxdistance,'String'));
+weight = 10;
+%weight = str2double(get(handles.weight,'String'))
+hough2linespic = hough2lines(houghpicthreshold,alpha,d,picsize,maxdistance,weight);
 hough2linessobel = hough2linespic.*sobelpicthreshold;
 assignin('base','hough2lines',hough2linessobel);
 
@@ -327,3 +329,49 @@ title('\fontsize{15}Output Picture')
 
 
 
+
+
+
+function edit6_Callback(hObject, eventdata, handles)
+% hObject    handle to edit6 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of edit6 as text
+%        str2double(get(hObject,'String')) returns contents of edit6 as a double
+
+
+% --- Executes during object creation, after setting all properties.
+function edit6_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to edit6 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+
+function weight_Callback(hObject, eventdata, handles)
+% hObject    handle to weight (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of weight as text
+%        str2double(get(hObject,'String')) returns contents of weight as a double
+
+
+% --- Executes during object creation, after setting all properties.
+function weight_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to weight (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
