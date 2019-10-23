@@ -312,7 +312,7 @@ outputpic = inputpic;
 [row,col] = find(resultpic ~= 0);
 for index = 1:size(row,1)
     outputpic(row(index),col(index),1) = 255;
-    outputpic(row(index),col(index),2) = 255;
+    outputpic(row(index),col(index),3) = 255;
 end
 
 figure('units','normalized','outerposition',[0 0 1 1])
