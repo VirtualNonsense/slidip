@@ -6,34 +6,30 @@ dstep = 10;
 
 %[file, path, index] = uigetfile({'*.jpg', 'JPEG'; '*.png', 'PNG'}, "please choose a picture");
 filepath = 'testimages/lines.jpg'; %strcat(path, file);
-filepath1 = 'testimages/extremtest.jpg';
-display("reading image")
+filepath1 = 'testimages/lines.jpg';
+display("reading image");
 pic = imread(filepath1);
 pic = rgb2bw(pic);
 picsize = size(pic);
+display("Applying sobelfilter");
 pic = sobeloperator(pic);
-imwrite(pic,'result/sobelpic.jpg');
+
+display("Applying thresholdfilter");
 pic = threshold(pic, 0.5);
-imwrite(pic,'result/sobelpic_threshold.jpg');
 sobel = pic;
-tic
+
+display("houghtransformation");
 [pic,d,alpha] = houghtransformation(pic, pistep, dstep);
 imagesc(pic)
 colorbar
-saveas(gcf,'result/houghtransformation.jpg');
-close
-%imwrite(pic,'result/houghtransformation.jpg');
-toc
+
+display("Applying thresholdfilter");
 pic = threshold(pic,0.6);
-imwrite(pic,'result/houghtransformation_threshold.jpg');
-tic
+
+display("Retransformation");
 pic = hough2lines(pic,pistep,dstep,d,alpha,picsize);
-imwrite(pic,'result/hough2lines.jpg');
-toc
+
 pic = pic.*sobel;
-imwrite(pic,'result/hough2lines_with_sobel.jpg');
-% colormap hot
-% imagesc(pic)
-% %image(pic,'CDataMapping', 'scaled');
-% 
-% colorbar;
+colormap hot
+imagesc(pic)
+colorbar;
