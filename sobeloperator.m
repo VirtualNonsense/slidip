@@ -12,6 +12,10 @@ gy = conv2(bw, sy, 'same');
 gx = conv2(bw, sx, 'same');
 
 sobel(:,:) = (gy(:,:).^2 + gx(:,:).^2).^0.5;
+sobel(1,:) = 0;
+sobel(x,:) = 0;
+sobel(:,1) = 0;
+sobel(:,y) = 0;
 
 end
 
