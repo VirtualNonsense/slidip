@@ -1,16 +1,6 @@
 function [outmatrix] = hough2lines(houghmatrix,d,alpha,picsize,maxdistance,weight,dalpha)
 %UNTITLED Summary of this function goes here
-%   Detailed explanation goes here
 
-
-% linevector = [];
-% 
-% [row,col] = find(houghmatrix ~= 0);
-% 
-% for index = 1:size(row,1)
-%     linevector = [linevector;
-%         alpha(row(index)),d(col(index))];
-% end
 
 linevector = getmaxhoughpoints(houghmatrix,maxdistance,weight);
 
