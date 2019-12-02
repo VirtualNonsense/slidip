@@ -3,7 +3,7 @@ function [outmatrix,d,alpha] = houghtransformation(inmatrix, pistep, dstep)
     
     
     %creating empty matrix with dimensions of inmatrix
-    [x,y] = size(inmatrix);
+    [y,x] = size(inmatrix);
     
     %calculating max value for distance from origin (upper left) to lower
     %right
@@ -15,7 +15,6 @@ function [outmatrix,d,alpha] = houghtransformation(inmatrix, pistep, dstep)
     d = dmin:dstep:dmax;
     %generating an outmatrix with dimensions of vectors
     outmatrix = zeros(size(alpha,2),size(d,2));
-%=======
 
     %getting columns and rows where inmatrix is not 0
     [row,col] = find(inmatrix > 0);
@@ -26,11 +25,12 @@ function [outmatrix,d,alpha] = houghtransformation(inmatrix, pistep, dstep)
         %for loop through all possibble values of alpha
         for a = alpha
             %calculating the hesse normal form value of d
-            dist = cos(a)*pixel(1)+sin(a)*pixel(2);
+            % dist = cos(a) * x + sin(a) * y;
+            dist = cos(a)*pixel(2) + sin(a)*pixel(1);
             %getting the nearest value of d in hough-matrix
             [~,index] = min(abs(d-dist));
             %increase value of corresponding values in outmatrix by 1
-            outmatrix(a==alpha,index) = outmatrix(a==alpha,index) +1;
+            outmatrix(a==alpha,index) = outmatrix(a==alpha, index) +1;
         end
     end
     
