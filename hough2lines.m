@@ -4,20 +4,22 @@ function [outmatrix] = hough2lines(houghmatrix,picsize,pistep, dstep)
 %linevector = getmaxhoughpoints(houghmatrix,maxdistance,weight);
 [row,col] = find(houghmatrix~=0);
 linevector = [row,col];
-
+d_null = size(houghmatrix,2)/2;
 %[x,y] = size(houghmatrix);
 %colormap white
 %imagesc(outmatrix(:,:));
 
-tmax = (picsize(1)+picsize(2))*pi;
+tmax = (picsize(1)+picsize(2));
 tmin = -tmax;
 outmatrix = zeros(size(linevector,1),2,2);
 for k = 1:size(linevector,1)
   alpha = linevector(k,1)*pistep;
-  d = linevector(k,2)*dstep;
-  minpoint = [cos(alpha)*d + tmin*sin(alpha),sin(alpha)*d+tmin*cos(alpha)];
+  d = (linevector(k,2) - d_null)*dstep;
+  minpoint = [cos(alpha)*d + tmin*sin(-alpha), sin(alpha)*d+tmin*cos(alpha),];
+  
   outmatrix(k,:,1) = minpoint;
-  maxpoint = [cos(alpha)*d + tmax*sin(alpha), sin(alpha)*d+tmax*cos(alpha)];
+  maxpoint = [cos(alpha)*d + tmax*sin(-alpha), sin(alpha)*d+tmax*cos(alpha)];
+  
   outmatrix(k,:,2) = maxpoint;
 end
 
