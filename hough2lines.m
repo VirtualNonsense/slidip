@@ -1,6 +1,5 @@
-function [outmatrix] = hough2lines(houghmatrix,d,alpha,picsize,maxdistance,weight,dalpha)
+function [outmatrix] = hough2lines(houghmatrix,picsize,maxdistance,weight,alphavector, dvector)
 %UNTITLED Summary of this function goes here
-
 
 linevector = getmaxhoughpoints(houghmatrix,maxdistance,weight);
 
@@ -8,8 +7,11 @@ linevector = getmaxhoughpoints(houghmatrix,maxdistance,weight);
 outmatrix = zeros(picsize);
 
 for k = 1:size(linevector,1)
-  alpha = linevector(k,1).*dalpha;
+  alpha = linevector(k,1).*pistep;
+  angle = alphavector(k);
   d = linevector(k,2);
+  d = dvector(k);
+  
   
   for l = 1:size(outmatrix,1)
       for m = 1:size(outmatrix,2)

@@ -26,5 +26,9 @@ function [outputdata] = getmaxhoughpoints(inputhough,maxdistance, weight)
     final = unique(current(:,:,1),'rows');
     outputdata = final;
 
+    
+    % anderer Anstatz
+    
+    
 end
 
