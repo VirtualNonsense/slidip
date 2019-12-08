@@ -1,4 +1,4 @@
-function [outmatrix,d,alpha] = alternative_houghtransformation(inmatrix, pistep, dstep)
+function [outmatrix,d,alpha] = tensor_mode_houghtransformation(inmatrix, pistep, dstep)
 %creating empty matrix with dimensions of inmatrix
     [y,x] = size(inmatrix);
     

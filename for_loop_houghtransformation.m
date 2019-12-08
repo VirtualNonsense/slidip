@@ -1,4 +1,4 @@
-function [outmatrix,d,alpha] = houghtransformation(inmatrix, pistep, dstep)
+function [outmatrix,d,alpha] = for_loop_houghtransformation(inmatrix, pistep, dstep)
     %HOUGHTRANSFORMATION Summary of this function goes hereend
     
     
