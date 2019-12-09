@@ -1,4 +1,4 @@
-function [outmatrix] = threshold(inmatrix, threshold)
+function [outmatrix] = Threshold(inmatrix, threshold)
 %   This is a simple filter to reduce the amount of calculations needed in
 %   the houghtransformation.
 %   It works by setting every value > threshold*maxvalue(inmatrix) 1 and

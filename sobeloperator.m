@@ -1,4 +1,4 @@
-function [sobel] = sobeloperator(blackwhitepic)
+function [sobel] = SobelOperator(blackwhitepic)
 %   This function provides a fast way to apply the sobeloperator to a black
 %   and white picture
 %   Input ########################

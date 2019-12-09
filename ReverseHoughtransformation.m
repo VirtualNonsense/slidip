@@ -1,4 +1,4 @@
-function [outmatrix] = reverse_houghtransformation(houghmatrix,picsize,pistep, dstep)
+function [outmatrix] = ReverseHoughtransformation(houghmatrix,picsize,pistep, dstep)
 %   This function converts all points into lines
 %   The lines are described by two points, placed outside the picture
 %   Input ########################

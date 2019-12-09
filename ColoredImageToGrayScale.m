@@ -1,4 +1,4 @@
-function [bw] = rgb2bw(rgb, weight)
+function [bw] = ColoredImageToGrayScale(rgb, weight)
 %   This function converts colorimages into black and white pictures
 %   Input ########################
 %   rgb: a rgb based picture structure x * y * 3

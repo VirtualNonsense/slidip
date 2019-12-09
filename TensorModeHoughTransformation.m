@@ -1,4 +1,4 @@
-function [outmatrix,d,alpha] = tensor_mode_houghtransformation(inmatrix, pistep, dstep)
+function [outmatrix,d,alpha] = TensorModeHoughTransformation(inmatrix, pistep, dstep)
 %   this function contains one possible implementation of the so called
 %   houghtransformation.
 %   This implementation does best when processing "small" images or rough

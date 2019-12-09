@@ -1,4 +1,4 @@
-function [outmatrix,distancesteps,alphasteps] = for_loop_houghtransformation(inmatrix, pistep, dstep)
+function [outmatrix,distancesteps,alphasteps] = ForLoopHoughTransformation(inmatrix, pistep, dstep)
 %   this function contains one possible implementation of the so called
 %   houghtransformation.
 %   The benefit of this algorithm is that it's speed is decent and the
