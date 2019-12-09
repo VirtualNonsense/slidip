@@ -12,7 +12,7 @@ function [outmatrix,d,alpha] = for_loop_houghtransformation(inmatrix, pistep, ds
     
     %defining vectors used with the hough-transformation
     alpha = 0:pistep:pi;
-    d = dmin:dstep:dmax;
+    d = [fliplr(-dstep:-dstep:dmin) 0:dstep:dmax];
     %generating an outmatrix with dimensions of vectors
     outmatrix = zeros(size(alpha,2),size(d,2));
 

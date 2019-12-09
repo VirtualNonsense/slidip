@@ -9,7 +9,7 @@ function [outmatrix,d,alpha] = tensor_mode_houghtransformation(inmatrix, pistep,
     
     % defining vectors used with the hough-transformation
     alpha = 0:pistep:pi;
-    d = dmin:dstep:dmax;
+    d = [fliplr(-dstep:-dstep:dmin) 0:dstep:dmax];
     outmatrix = zeros(size(alpha,2),size(d,2));
     % reshaping d in order to exploit FAST MATRIX OPERATIONS \0/
     d = reshape(d, [1, 1, size(d,2)]);
