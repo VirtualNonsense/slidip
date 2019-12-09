@@ -1,4 +1,4 @@
-function [outmatrix] = hough2lines(houghmatrix,picsize,pistep, dstep)
+function [outmatrix] = reverse_houghtransformation(houghmatrix,picsize,pistep, dstep)
     % TODO: write proper header
 
     % get relevant positions of relevant values
