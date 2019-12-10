@@ -5,13 +5,13 @@ function [filteredlinevektor] = FindSimilarRows(linevector, angularwindow, stepw
     if angularwindow >= 0 && stepwindow >= 0
        q = find(abs(linevector(2:end,1) - linevector(1:end-1, 1))< angularwindow);
        k = find(abs(linevector(2:end,2) - linevector(1:end-1, 2))< stepwindow);
-       filteredlinevektor = unique(linevector(intersect(k, q), :), 'rows');
+       filteredlinevektor = linevector(intersect(k, q), :);
     elseif angularwindow >= 0
        q = find(abs(linevector(2:end,1) - linevector(1:end-1, 1))< angularwindow);
-       filteredlinevektor = unique(linevector(q, :), 'rows');
+       filteredlinevektor = linevector(q, :);
     elseif stepwindow >= 0
        k = find(abs(linevector(2:end,2) - linevector(1:end-1, 2))< stepwindow);
-       filteredlinevektor = unique(linevector(k, :), 'rows');
+       filteredlinevektor = linevector(k, :);
     else
         filteredlinevektor = linevector;
     end
