@@ -1,4 +1,4 @@
-function [outmatrix] = ReverseHoughtransformation(houghmatrix,picsize,pistep, dstep, angularwindow, stepwindow)
+function [outmatrix] = ReverseHoughtransformation(houghmatrix,picsize,pistep, dstep)
 %   This function converts all points into lines
 %   The lines are described by two points, placed outside the picture
 %   Input ########################
@@ -13,7 +13,6 @@ function [outmatrix] = ReverseHoughtransformation(houghmatrix,picsize,pistep, ds
     % get positions of relevant values
     [row,col] = find(houghmatrix~=0);
     linevector = [row,col];
-    linevector = FindSimilarRows(linevector, angularwindow, stepwindow);
 
     % calculate position of zeroline
     d_null = size(houghmatrix,2)/2;
